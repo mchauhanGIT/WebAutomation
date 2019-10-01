@@ -63,7 +63,7 @@ Scenario Outline: Validate the user is able to create new record for person in V
 
     Examples: 
 	|	TIN (SSN/EIN)	|	Title	|	First name	|	Last name	|	Gender	|	Birth Date	|	Street address	|	City	|	State		|	Zip code	|	Phone type	|	Phone number	|	Email address	|	ID type				|	Number	|	Issuing authority	|	ID state	|	Issuance date	|	Expiration date	|	Employer	|	Job title	| Salary	|	Officer code	|	Branch			|
-	|	4111111555		|	Mr.		|	Andrew		|	Lopez		|	Male	| Oct 20, 1991  |	1234 Main St	|	Tulsa	|	Oklahoma	|	12345		|	Cell		|	987-654-3210		|	abc@abc.com		|	Driver's Licence	|	DMV1234	|	DMV					|	Texas		|	07/06/2016		|	07/05/2022		|	ABC LLC		|	Tester		|	50,000	|	RBS				|	Tulsa - Yale	|					
+	|	4111111555		|	Mr.		|	Andrew		|	Lopez		|	Male	| Oct 20, 1991  |	1234 Main St	|	Tulsa	|	Oklahoma	|	12345		|	Cell		|	9876543210		|	abc@abc.com		|	Driver's Licence	|	DMV1234	|	DMV					|	Texas		|	07/06/2016		|	07/05/2022		|	ABC LLC		|	Tester		|	50,000	|	RBS				|	Tulsa - Yale	|					
 	
 
 	
