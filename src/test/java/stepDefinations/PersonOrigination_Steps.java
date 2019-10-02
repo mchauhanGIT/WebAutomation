@@ -4,6 +4,7 @@ import com.cucumber.listener.Reporter;
 
 import cucumber.api.java.en.Given;
 import net.prodigylabs.config.ObjectRepository;
+import net.prodigylabs.handlers.VerificationHandler;
 
 public class PersonOrigination_Steps {
 	
@@ -14,37 +15,24 @@ public class PersonOrigination_Steps {
 		this.vastbasetest=vastbasetest;
 		this.loginsteps=loginsteps;
 	}
-
-	@Given("^user selects \"([^\"]*)\" from \"([^\"]*)\"$")
-	public void user_selects_from(String arg1, String arg2) throws Throwable {
-		vastbasetest.webelementHandler.clickElementByText(ObjectRepository.getobjectLocator(arg2), arg1);
-        Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
-	}
 	
+	@Given("^user clicks on \"([^\"]*)\" and selects \"([^\"]*)\" from \"([^\"]*)\"$")
+	public void user_clicks_on_and_selects_from(String arg1, String arg2, String arg3) throws Throwable {
+		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(arg1));
+		vastbasetest.webelementHandler.clickElementByText(ObjectRepository.getobjectLocator(arg3), arg2);		
+        Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName)); 
+	}
+
 	@Given("^user enters text \"([^\"]*)\" in textbox \"([^\"]*)\" using javascript$")
 	public void user_enters_text_in_textbox_using_javascript(String arg1, String arg2) throws Throwable {
 		vastbasetest.webelementHandler.enterTextUsingJavascript(ObjectRepository.getobjectLocator(arg2), arg1);
+		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
 	}
-
-	@Given("^user clicks on button \"([^\"]*)\" to add phone number$")
-	public void user_clicks_on_button_to_add_phone_number(String arg1) throws Throwable {
-
+	
+	@Given("^user validates text \"([^\"]*)\" with expected value \"([^\"]*)\"$")
+	public void user_validates_text_with_expected_value(String arg1, String arg2) throws Throwable {
+		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.getText(ObjectRepository.getString(arg1)).contains(arg2));
+		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
 	}
-
-	@Given("^user clicks on button \"([^\"]*)\" to add email address$")
-	public void user_clicks_on_button_to_add_email_address(String arg1) throws Throwable {
-
-	}
-
-	@Given("^user reaches on ID Verification screen$")
-	public void user_reaches_on_ID_Verification_screen() throws Throwable {
-
-	}
-
-	@Given("^user reaches on confirmation screen$")
-	public void user_reaches_on_confirmation_screen() throws Throwable {
-
-	}
-
 
 }

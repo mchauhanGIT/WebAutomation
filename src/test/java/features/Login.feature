@@ -11,7 +11,8 @@ Scenario Outline: Verify Login with valid credentials
 		And user clicks on button "Environment"
 		And user clicks on button "VAST_Jack_Henry_QAT"
 		And user clicks on button "Login"
-		Then user is on Vast Homepage
+		And user waits for page to load
+		Then user is on "Dashboard_page" 
 		
 		Examples:
 		| url | Username | Password |
@@ -25,7 +26,7 @@ Scenario Outline: Verify Login with invalid credentials
 		And user clicks on button "Environment"
 		And user clicks on button "VAST_Jack_Henry_QAT"
 		And user clicks on button "Login"
-		Then user validates "Error_Message" with expected "<Message>"
+		Then user validates "Error_Message" with expected value "<Message>"
 		
 		Examples:
 		| url | Username | Password | Message |
