@@ -13,7 +13,7 @@ import com.cucumber.listener.Reporter;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(		
- features = {"src/test/java/features/PersonOrigination.feature"},
+ features = {"src/test/java/features/CustomerSearch.feature"},
  glue= "stepDefinations",
  plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/VastTestAutomation.html"},
  monochrome = true,
@@ -35,5 +35,4 @@ public class TestRunner {
 	     Reporter.setSystemInfo("Machine", ObjectRepository.getString("global.browser.name"));
 	     Reporter.setSystemInfo("Machine", ObjectRepository.getString("global.environment.name"));
 	}
-
 }

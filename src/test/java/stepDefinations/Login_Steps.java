@@ -41,9 +41,6 @@ public class Login_Steps{
 
 	@Given("^user enters text \"([^\"]*)\" in textbox \"([^\"]*)\"$")
 	public void user_enters_text_in_textbox(String arg1, String arg2) throws Throwable {
-		if (arg1.equals("9876543210")) {
-			System.out.println("here");
-		}
 		vastbasetest.webelementHandler.enterText(ObjectRepository.getobjectLocator(arg2), arg1);
 		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));
 	}
@@ -53,15 +50,15 @@ public class Login_Steps{
 		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(arg1));
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
 	}
-
-	@Then("^user is on Vast Homepage$")
-	public void user_is_on_Vast_Homepage() throws Throwable {
-		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.isDisplayed(ObjectRepository.getobjectLocator("homepage.tab.dashboard")));
+	
+	@Then("^user is on \"([^\"]*)\"$")
+	public void user_is_on(String arg1) throws Throwable {
+		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.isDisplayed(ObjectRepository.getobjectLocator(arg1)));
 		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
 	}
 	
-	@Then("^user validates \"([^\"]*)\" with expected \"([^\"]*)\"$")
-	public void user_validates_with_expected(String arg1, String arg2) throws Throwable {
+	@Given("^user validates \"([^\"]*)\" with expected value \"([^\"]*)\"$")
+	public void user_validates_with_expected_value(String arg1, String arg2) throws Throwable {
 		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.getText(ObjectRepository.getobjectLocator(arg1)).contains(arg2));
 		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
 	}
