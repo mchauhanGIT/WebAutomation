@@ -53,6 +53,7 @@ public class Login_Steps{
 	
 	@Then("^user is on \"([^\"]*)\"$")
 	public void user_is_on(String arg1) throws Throwable {
+		Thread.sleep(2000);
 		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.isDisplayed(ObjectRepository.getobjectLocator(arg1)));
 		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
 	}
