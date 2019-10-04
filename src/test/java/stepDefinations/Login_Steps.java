@@ -68,4 +68,13 @@ public class Login_Steps{
 	public void user_waits_for_page_to_load() throws Throwable {
 		vastbasetest.webelementHandler.waitforinvisibilityofElement(ObjectRepository.getobjectLocator("Spinner"));
 	}
+	
+    @Given("^user waits for \"(.*?)\" seconds$")
+    public void user_waits_for_seconds(long arg1) throws Throwable 
+    {
+       arg1 = arg1*1000;
+    	Thread.sleep(arg1);
+		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
+    } 
+    
 }

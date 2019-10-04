@@ -13,7 +13,7 @@ import com.cucumber.listener.Reporter;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(		
- features = {"src/test/java/features"},
+ features = {"src/test/java/features/ContractOrigination.feature"},
  glue= "stepDefinations",
  plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/VastTestAutomation.html"},
  monochrome = true,

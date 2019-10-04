@@ -35,6 +35,9 @@ public class Customer_Steps {
 	
 	@Given("^user clicks on \"([^\"]*)\" and selects \"([^\"]*)\" from \"([^\"]*)\"$")
 	public void user_clicks_on_and_selects_from(String arg1, String arg2, String arg3) throws Throwable {
+		if (arg2.equals("Checking")) {
+			System.out.println("here");
+		}
 		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(arg1));
 		vastbasetest.webelementHandler.clickElementByText(ObjectRepository.getobjectLocator(arg3), arg2);		
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName)); 
