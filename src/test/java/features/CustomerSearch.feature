@@ -11,7 +11,7 @@ Background:
 	And user clicks on button "Environment"
 	And user clicks on button "VAST_Jack_Henry_QAT"
     And user clicks on button "Login"
-    And user waits for page to load
+    And user waits for "5" seconds
     And user is on "Dashboard_page"  
     
  @Smoke @Regression @TC003

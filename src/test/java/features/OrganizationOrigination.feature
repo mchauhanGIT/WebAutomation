@@ -10,6 +10,7 @@ Background:
 	And user clicks on button "Environment"
 	And user clicks on button "VAST_Jack_Henry_QAT"
     And user clicks on button "Login"
+    And user waits for "5" seconds
     And user is on "Dashboard_page"    
  	
 @Smoke @Regression	 @TC007
@@ -67,7 +68,7 @@ Scenario Outline: Validate the user is able to create new record for organizatio
 
     Examples: 
 	|	TIN (SSN/EIN)	|	Entity name	|	Organization type	|	Registered state |	Street address	|	City	|	State		|	Zip code	|	Phone type	|	Phone number	|	Email address	|	ID type						|	Number	|	Issuing authority	|	ID state	|	Issuance date	|	Expiration date	|	Officer code	|	Branch	     | Relation type | Customer  | Address                       |
-	|	114464611		|	VAST Entity	|	Corporation			|	Oklahoma 		 |	1234 Main St	|	Tulsa	|	Oklahoma	|	12345		|	Cell		|	987-654-3210	|	abc@abc.com		|	Articles of Incorporation	|	DMV1234	|	DMV					|	Texas		|	Jun 07, 2016	|	Jun 05, 2022	|	RBS             |	Tulsa - Yale | Trustee       | 444444444 | 1234 Main St, Tulsa, OK 12345 |	
+	|	114467611		|	VAST Entity	|	Corporation			|	Oklahoma 		 |	1234 Main St	|	Tulsa	|	Oklahoma	|	12345		|	Cell		|	987-654-3210	|	abc@abc.com		|	Articles of Incorporation	|	DMV1234	|	DMV					|	Texas		|	Jun 07, 2016	|	Jun 05, 2022	|	RBS             |	Tulsa - Yale | Trustee       | 444444444 | 1234 Main St, Tulsa, OK 12345 |	
 	
 
 	
