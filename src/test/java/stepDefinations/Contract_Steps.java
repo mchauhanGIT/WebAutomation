@@ -15,10 +15,10 @@ public class Contract_Steps {
 		this.vastbasetest=vastbasetest;
 		this.loginsteps=loginsteps;
 	}
-	
-	@Given("^user selects \"([^\"]*)\" card$")
-	public void user_selects_card(String arg1) throws Throwable {
-		vastbasetest.webelementHandler.clickElementByText(ObjectRepository.getobjectLocator("Sub-Product_type"), arg1);		
+		
+	@Given("^user selects \"([^\"]*)\" from \"([^\"]*)\"$")
+	public void user_selects_from(String arg1, String arg2) throws Throwable {
+		vastbasetest.webelementHandler.clickElementByText(ObjectRepository.getobjectLocator(arg2), arg1);		
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName)); 
 	}
 	
@@ -27,5 +27,6 @@ public class Contract_Steps {
 		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.isDisplayed(ObjectRepository.getString(element)));
 		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName)); 
 	}
+	
 
 }

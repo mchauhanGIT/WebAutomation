@@ -13,12 +13,12 @@ import com.cucumber.listener.Reporter;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(		
- features = {"src/test/java/features/PersonOrigination.feature"},
+ features = {"src/test/java/features"},
  glue= "stepDefinations",
  plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/VastTestAutomation.html"},
  monochrome = true,
  dryRun = false,
- tags={"@Smoke"})
+ tags={"@Regression"})
 public class TestRunner {
 	
 	@BeforeClass
