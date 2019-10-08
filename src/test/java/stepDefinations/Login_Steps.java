@@ -53,7 +53,8 @@ public class Login_Steps{
 	
 	@Then("^user is on \"([^\"]*)\"$")
 	public void user_is_on(String arg1) throws Throwable {
-		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.isDisplayed(ObjectRepository.getobjectLocator(arg1)));
+		Thread.sleep(2000);
+		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.isDisplayed(ObjectRepository.getString(arg1)));
 		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
 	}
 	
@@ -65,6 +66,15 @@ public class Login_Steps{
 	
 	@Given("^user waits for page to load$")
 	public void user_waits_for_page_to_load() throws Throwable {
-		vastbasetest.webelementHandler.waitforinvisibilityofElement(ObjectRepository.getobjectLocator("Spinner"));
-	}
+		vastbasetest.webelementHandler.waitforinvisibilityofAllElements(ObjectRepository.getobjectLocator("Spinner"));
+		}
+	
+    @Given("^user waits for \"(.*?)\" seconds$")
+    public void user_waits_for_seconds(long arg1) throws Throwable 
+    {
+       arg1 = arg1*1000;
+    	Thread.sleep(arg1);
+		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
+    } 
+    
 }
