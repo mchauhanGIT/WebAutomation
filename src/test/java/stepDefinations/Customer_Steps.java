@@ -25,11 +25,18 @@ public class Customer_Steps {
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
 	}
 	
-	@Given("^user clicks on \"([^\"]*)\" and selects \"([^\"]*)\" from \"([^\"]*)\"$")
-	public void user_clicks_on_and_selects_from(String arg1, String arg2, String arg3) throws Throwable {
-		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(arg1));
-		vastbasetest.webelementHandler.clickElementByText(ObjectRepository.getobjectLocator(arg3), arg2);		
-        Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName)); 
+	@Given("^user selects \"([^\"]*)\" from \"([^\"]*)\" dropdown$")
+	public void user_selects_from_dropdown(String value, String dropdown) throws Throwable {
+		if (value.equals("Mr.")) {
+			System.out.println("here");
+		}
+		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(dropdown));
+		String dropdownList = ObjectRepository.getString(dropdown).replace("//div", "//li").replaceAll("Xpath:", "");
+		if (dropdown.equals("Opened_by_Officer_ID") || dropdown.equals("Officer_code")) {
+			dropdownList=dropdownList+"//span";
+		}
+		vastbasetest.webelementHandler.clickElementByText(dropdownList, value);
+        Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));
 	}
 
 	@Given("^user enters text \"([^\"]*)\" in textbox \"([^\"]*)\" using javascript$")

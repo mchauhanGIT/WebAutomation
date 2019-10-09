@@ -22,8 +22,8 @@ Scenario Outline: Validate the user is able to apply for Money Market Product fo
 	And user enters text "<Customer number>" in textbox "Customer_number" using javascript
 	And user clicks on button "Search_Customer"
 	And user waits for "4" seconds
-    And user validates "Client_data" with expected value "<Customer number>"    
-	And user clicks on "Product_type" and selects "<Product type>" from "all_Product_types"	
+    And user validates "Client_data" with expected value "<Customer number>" 
+    And user selects "<Product type>" from "Product_type" dropdown
 	And user selects "<Sub Product type>" from "Product_card"
 	And user clicks on button "Next"
     And user waits for "4" seconds
@@ -32,9 +32,9 @@ Scenario Outline: Validate the user is able to apply for Money Market Product fo
     And user waits for "4" seconds
     And user is on "Account_origination_Account_details"
     And user enters text "<Opening amount>" in textbox "Opening_amount"
-    And user clicks on "Account_ownership" and selects "<Account ownership>" from "all_Account_ownerships"
-    And user clicks on "Opened_by_Officer_ID" and selects "<Opened by (Officer ID)>" from "all_Opened_by_Officer_ID"
-    And user clicks on "*Branch" and selects "<Branch>" from "*all_Branches"
+    And user selects "<Account ownership>" from "Account_ownership" dropdown
+    And user selects "<Opened by (Officer ID)>" from "Opened_by_Officer_ID" dropdown
+  	And user selects "<Branch>" from "*Branch" dropdown
     And user enters text "<Resolution date>" in textbox "Resolution_date"    
     And user clicks on button "Next"
     And user waits for "4" seconds
@@ -42,11 +42,11 @@ Scenario Outline: Validate the user is able to apply for Money Market Product fo
     And user validates text "Contracted_Product" with expected value "<Sub Product type>"
     And user validates that "Account_Number" is displayed
     And user clicks on button "Add_Relationships"
-    And user clicks on "Type_of_Relationship" and selects "<Type of Relationship>" from "all_Type_of_Relationship"	
+    And user selects "<Type of Relationship>" from "Type_of_Relationship" dropdown	
     And user enters text "<Customer>" in textbox "*Customer"
     And user clicks on button "Save_Relation"
-   	And user enters text "<Percentage>" in textbox "Percentage"
     And user waits for page to load
+   	And user enters text "<Percentage>" in textbox "Percentage"
 	And user clicks on button "Save_Relation"
 	And user waits for page to load
 	And Verify "<Customer>" is available in "Customer_Number_Column"
@@ -59,7 +59,7 @@ Scenario Outline: Validate the user is able to apply for Money Market Product fo
 	And user waits for page to load	
 	And user clicks on button "Issue_debit_cards_to_dropdown"
 	And user selects "<Secondary Customer Name>" from "Issue_debit_cards_to_list"	
-	And user clicks on "Account_status_ATM_&_POS" and selects "<Account status ATM & POS>" from "all_Account_status_ATM_&_POS"		
+    And user selects "<Account status ATM & POS>" from "Account_status_ATM_&_POS" dropdown
 	And user validates "Account_designation_value" with expected value "<Account designation>"	
 	And user clicks on button "Next"
 	And user waits for page to load
@@ -99,7 +99,7 @@ Scenario Outline: Validate the user is able to apply for Business Savings Produc
 	And user clicks on button "Search_Customer"
 	And user waits for "4" seconds
     And user validates "Client_data" with expected value "<Customer number>"
-	And user clicks on "Product_type" and selects "<Product type>" from "all_Product_types"
+    And user selects "<Product type>" from "Product_type" dropdown
 	And user selects "<Sub Product type>" from "Product_card"
 	And user clicks on button "Next"
     And user waits for "4" seconds
@@ -108,10 +108,10 @@ Scenario Outline: Validate the user is able to apply for Business Savings Produc
     And user waits for "4" seconds
     And user is on "Account_origination_Account_details"
     And user enters text "<Opening amount>" in textbox "Opening_amount"
-    And user clicks on "Account_ownership" and selects "<Account ownership>" from "all_Account_ownerships"
-    And user clicks on "Trust_account" and selects "<Trust account>" from "all_Trust_account"    
-    And user clicks on "Opened_by_Officer_ID" and selects "<Opened by (Officer ID)>" from "all_Opened_by_Officer_ID"
-    And user clicks on "*Branch" and selects "<Branch>" from "*all_Branches"
+    And user selects "<Account ownership>" from "Account_ownership" dropdown
+    And user selects "<Trust account>" from "Trust_account" dropdown
+    And user selects "<Opened by (Officer ID)>" from "Opened_by_Officer_ID" dropdown
+    And user selects "<Branch>" from "*Branch" dropdown
     And user enters text "<Resolution date>" in textbox "Resolution_date"    
     And user clicks on button "Next"
     And user waits for "4" seconds
@@ -119,7 +119,7 @@ Scenario Outline: Validate the user is able to apply for Business Savings Produc
     And user validates text "Contracted_Product" with expected value "<Sub Product type>"
     And user validates that "Account_Number" is displayed
     And user clicks on button "Add_Relationships"
-    And user clicks on "Type_of_Relationship" and selects "<Type of Relationship>" from "all_Type_of_Relationship"	
+    And user selects "<Type of Relationship>" from "Type_of_Relationship" dropdown
     And user enters text "<Customer>" in textbox "*Customer"
     And user clicks on button "Save_Relation"
    	And user enters text "<Percentage>" in textbox "Percentage"
@@ -136,7 +136,7 @@ Scenario Outline: Validate the user is able to apply for Business Savings Produc
 	And user waits for page to load	
 	And user clicks on button "Issue_debit_cards_to_dropdown"
 	And user selects "<Secondary Customer Name>" from "Issue_debit_cards_to_list"
-	And user clicks on "Account_status_ATM_&_POS" and selects "<Account status ATM & POS>" from "all_Account_status_ATM_&_POS"	
+	And user selects "<Account status ATM & POS>" from "Account_status_ATM_&_POS" dropdown
 	And user validates "Account_designation_value" with expected value "<Account designation>"	
 	And user clicks on button "Next"
 	And user waits for page to load
