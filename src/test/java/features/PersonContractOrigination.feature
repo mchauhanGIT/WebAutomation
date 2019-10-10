@@ -44,19 +44,19 @@ Scenario Outline: Validate the user is able to apply for Easy Checking Product f
 	And user waits for page to load
 	And user is on "Account_origination_Checks"
 	And user waits for page to load
-	And user validates "Does_the_customer_require_checks?" with expected value "<Does the customer require checks?>"
+	And user validates "Does_the_customer_require_checks?" with expected value "NO"
 	And user clicks on button "Next"
     And user is on "Account_origination_Card_Origination"  
-    And user validates "Does_the_customer_want_to_have_a_card?" with expected value "<Does the customer want to have a card?>"
+    And user validates "Does_the_customer_want_to_have_a_card?" with expected value "NO"
 	And user clicks on button "Next"
     And user is on "Account_origination_E-statement"  
-    And user validates "Does_the_customer_want_an_e-statement?" with expected value "<Does the customer want an e-statement?>"
+    And user validates "Does_the_customer_want_an_e-statement?" with expected value "YES"
 	And user clicks on button "Next"
     And user is on "Account_origination_Mobile_Deposit"  
-    And user validates "Does_the_customer_want_to_setup_mobile_deposit?" with expected value "<Does the customer want to setup mobile deposit?>"
+    And user validates "Does_the_customer_want_to_setup_mobile_deposit?" with expected value "YES"
 	And user clicks on button "Next"
     And user is on "Account_origination_Online_Banking" 
-    And user validates "Does_the_customer_want_to_access_online_banking?" with expected value "<Does the customer want to access online banking?>"
+    And user validates "Does_the_customer_want_to_access_online_banking?" with expected value "YES"
 	And user clicks on button "Next"
     And user is on "Account_origination_Confirmation"   
     And user validates text "Contracted_Product_On_Confirmation_Screen" with expected value "<Sub Product type>" 
@@ -71,8 +71,8 @@ Scenario Outline: Validate the user is able to apply for Easy Checking Product f
   #  And user clicks on button "Submit"
 
     Examples: 
-	| Customer number |	Product type |	Sub Product type |	Opening amount	|	Account ownership	|  Opened by (Officer ID) |	Branch	| Does the customer require checks? | Does the customer want to have a card? | Does the customer want an e-statement? | Does the customer want to setup mobile deposit? |Does the customer want to access online banking?| Interest Rate | APY   | 	
-	| 444985592 	  |	Checking     |	Easy Checking    |	1000			|	Individual			|	 DIR				  |	Bixby	| NO 								| NO 									 | YES 									  | YES 										    | YES 											 |  0.00%		 | 0.00% |
+	| Customer number |	Product type |	Sub Product type |	Opening amount	|	Account ownership	|  Opened by (Officer ID) |	Branch	| Interest Rate | APY   | 	
+	| 444985592 	  |	Checking     |	Easy Checking    |	1000			|	Individual			|	 DIR				  |	Bixby	|  0.00%	    | 0.00% |
 	
 @Smoke @Regression	 @TC008
 Scenario Outline: Validate the user is able to apply for Rewards Checking Product for Joint account by adding relationship with another customer and requesting card for both
