@@ -4,18 +4,18 @@
 #Scenario: #NA
 Feature: Person Contract Origination 
 Background:
-    Given User launches the Vast application "http://vnbaxmqaapp.vnb.internal:8080/bpc/"
+    Given User launches the application "http://vnbaxmqaapp.vnb.internal:8080/bpc/"
     And user enters text "adeep" in textbox "Username"
     And user enters text "test" in textbox "Password"
 	And user clicks on button "Environment"
 	And user clicks on button "VAST_Jack_Henry_QAT"
     And user clicks on button "Login"
-    And user waits for "3" seconds
-    And user is on "Dashboard_page"    
+    And user waits for "5" seconds
+    And user validates that "Dashboard_page" is displayed   
  	
-@Smoke @Regression	 @TC007
+@Smoke  @TC007
 Scenario Outline: Validate the user is able to apply for Easy Checking Product for Individual account with default values
-	Given user is on "Dashboard_page" 
+	Given user validates that "Dashboard_page" is displayed 
 	And user clicks on button "Contract"
 	And user clicks on button "Origination"
 	And user waits for "4" seconds
@@ -26,39 +26,39 @@ Scenario Outline: Validate the user is able to apply for Easy Checking Product f
     And user selects "<Product type>" from "Product_type" dropdown
 	And user selects "<Sub Product type>" from "Product_card"
 	And user clicks on button "Next"
-    And user waits for "4" seconds
-    And user is on "Account_origination_make_decission_new_process"
+    And user waits for "4" seconds    
+    And user validates that "Account_origination_make_decission_new_process" is displayed 
     And user clicks on button "Next"
     And user waits for "4" seconds    
-    And user is on "Account_origination_Account_details"
+    And user validates that "Account_origination_Account_details" is displayed 
     And user enters text "<Opening amount>" in textbox "Opening_amount"
     And user selects "<Account ownership>" from "Account_ownership" dropdown
     And user selects "<Opened by (Officer ID)>" from "Opened_by_Officer_ID" dropdown
     And user selects "<Branch>" from "*Branch" dropdown
     And user clicks on button "Next"
     And user waits for "4" seconds
-    And user is on "Account_origination_Relationships" 
+	And user validates that "Account_origination_Relationships" is displayed 
     And user validates text "Contracted_Product" with expected value "<Sub Product type>"
     And user validates that "Account_Number" is displayed
 	And user clicks on button "Next"
 	And user waits for page to load
-	And user is on "Account_origination_Checks"
-	And user waits for page to load
-	And user validates "Does_the_customer_require_checks?" with expected value "NO"
+	And user validates that "Account_origination_Checks" is displayed 
+	And user waits for page to load	
+	And user validates switch "Does_the_customer_require_checks?" with expected value "NO"
 	And user clicks on button "Next"
-    And user is on "Account_origination_Card_Origination"  
-    And user validates "Does_the_customer_want_to_have_a_card?" with expected value "NO"
+	And user validates that "Account_origination_Card_Origination" is displayed 
+    And user validates switch "Does_the_customer_want_to_have_a_card?" with expected value "NO"
 	And user clicks on button "Next"
-    And user is on "Account_origination_E-statement"  
-    And user validates "Does_the_customer_want_an_e-statement?" with expected value "YES"
+	And user validates that "Account_origination_E-statement" is displayed 
+    And user validates switch "Does_the_customer_want_an_e-statement?" with expected value "YES"
 	And user clicks on button "Next"
-    And user is on "Account_origination_Mobile_Deposit"  
-    And user validates "Does_the_customer_want_to_setup_mobile_deposit?" with expected value "YES"
+	And user validates that "Account_origination_Mobile_Deposit" is displayed 
+    And user validates switch "Does_the_customer_want_to_setup_mobile_deposit?" with expected value "YES"
 	And user clicks on button "Next"
-    And user is on "Account_origination_Online_Banking" 
-    And user validates "Does_the_customer_want_to_access_online_banking?" with expected value "YES"
-	And user clicks on button "Next"
-    And user is on "Account_origination_Confirmation"   
+	And user validates that "Account_origination_Online_Banking" is displayed 
+    And user validates switch "Does_the_customer_want_to_access_online_banking?" with expected value "YES"
+	And user clicks on button "Next"	
+	And user validates that "Account_origination_Confirmation" is displayed 
     And user validates text "Contracted_Product_On_Confirmation_Screen" with expected value "<Sub Product type>" 
     And user validates that "Account_Number_On_Confirmation_Screen" is displayed
     And user validates text "Interest_Rate" with expected value "<Interest Rate>" 
@@ -66,7 +66,7 @@ Scenario Outline: Validate the user is able to apply for Easy Checking Product f
     And user clicks on button "Confirm"
     And user waits for "30" seconds
 	And user waits for page to load
-    And user is on "Account_origination_Signature"  
+	And user validates that "Account_origination_Signature" is displayed 
   #  And user clicks on button "Printed_Signed"    Commenting as this piece is under development
   #  And user clicks on button "Submit"
 
@@ -76,7 +76,7 @@ Scenario Outline: Validate the user is able to apply for Easy Checking Product f
 	
 @Smoke @Regression	 @TC008
 Scenario Outline: Validate the user is able to apply for Rewards Checking Product for Joint account by adding relationship with another customer and requesting card for both
-	Given user is on "Dashboard_page" 
+	Given user validates that "Dashboard_page" is displayed 		
 	And user clicks on button "Contract"
 	And user clicks on button "Origination"
 	And user waits for "4" seconds
@@ -88,17 +88,17 @@ Scenario Outline: Validate the user is able to apply for Rewards Checking Produc
 	And user selects "<Sub Product type>" from "Product_card"
 	And user clicks on button "Next"
     And user waits for "4" seconds
-    And user is on "Account_origination_make_decission_new_process"
+   	And user validates that "Account_origination_make_decission_new_process" is displayed 
     And user clicks on button "Next"
     And user waits for "4" seconds    
-    And user is on "Account_origination_Account_details"
+    And user validates that "Account_origination_Account_details" is displayed 
     And user enters text "<Opening amount>" in textbox "Opening_amount"
     And user selects "<Account ownership>" from "Account_ownership" dropdown
     And user selects "<Opened by (Officer ID)>" from "Opened_by_Officer_ID" dropdown
     And user selects "<Branch>" from "*Branch" dropdown
     And user clicks on button "Next"
     And user waits for "4" seconds
-    And user is on "Account_origination_Relationships" 
+	And user validates that "Account_origination_Relationships" is displayed 
     And user validates text "Contracted_Product" with expected value "<Sub Product type>"
     And user validates that "Account_Number" is displayed
     And user clicks on button "Add_Relationships"
@@ -109,20 +109,20 @@ Scenario Outline: Validate the user is able to apply for Rewards Checking Produc
     And user enters text "<Percentage>" in textbox "Percentage"
 	And user clicks on button "Save_Relation"
 	And user waits for page to load
-	And Verify "<Customer>" is available in "Customer_Number_Column"
-	And Verify "<Type of Relationship>" is available in "Type_Of_Relationship_Column"
-	And Verify "<Percentage>" is available in "Percentage_Column"
+	And Verify "<Customer>" is displayed in "Customer_Number_Column"
+	And Verify "<Type of Relationship>" is displayed in "Type_Of_Relationship_Column"
+	And Verify "<Percentage>" is displayed in "Percentage_Column"
 	And user clicks on button "Next"
     And user waits for "3" seconds
-	And user is on "Account_origination_Checks"
-	And user clicks on button "Does_the_customer_require_checks_YES"
+    And user validates that "Account_origination_Checks" is displayed     
+    And user selects "YES" for switch "Does_the_customer_require_checks?"
 	And user waits for page to load
 	And user validates "Address_on_checks_value" with expected value "<Address on checks>"
 	And user validates "Shipping_Address" with expected value "<Shipping Address>"
 	And user clicks on button "Next"
     And user waits for "3" seconds
-	And user is on "Account_origination_Card_Origination"  
-	And user clicks on button "Does_the_customer_want_to_have_a_card_YES"
+    And user validates that "Account_origination_Card_Origination" is displayed 
+    And user selects "YES" for switch "Does_the_customer_want_to_have_a_card?"
 	And user waits for page to load	
 	And user validates "Issue_debit_cards_to" with expected value "<Customer Name>"
 	And user clicks on button "Issue_debit_cards_to_dropdown"
@@ -131,16 +131,16 @@ Scenario Outline: Validate the user is able to apply for Rewards Checking Produc
 	And user validates "Account_designation_value" with expected value "<Account designation>"	
 	And user clicks on button "Next"
 	And user waits for page to load
-    And user is on "Account_origination_E-statement"  
-    And user clicks on button "Does_the_customer_want_an_e-statement_NO"
+	And user validates that "Account_origination_E-statement" is displayed 
+	And user selects "NO" for switch "Does_the_customer_want_an_e-statement?"
 	And user clicks on button "Next"
-    And user is on "Account_origination_Mobile_Deposit"  
-    And user clicks on button "Does_the_customer_want_to_setup_mobile_deposit_NO"
+	And user validates that "Account_origination_Mobile_Deposit" is displayed 
+	And user selects "NO" for switch "Does_the_customer_want_to_setup_mobile_deposit?"
 	And user clicks on button "Next"
-    And user is on "Account_origination_Online_Banking" 
-	And user clicks on button "Does_the_customer_want_to_access_online_banking_NO"
+	And user validates that "Account_origination_Online_Banking" is displayed
+	And user selects "NO" for switch "Does_the_customer_want_to_access_online_banking?" 
 	And user clicks on button "Next"
-    And user is on "Account_origination_Confirmation"   
+	And user validates that "Account_origination_Confirmation" is displayed 
     And user validates text "Contracted_Product_On_Confirmation_Screen" with expected value "<Sub Product type>" 
     And user validates that "Account_Number_On_Confirmation_Screen" is displayed
     And user validates text "Interest_Rate" with expected value "<Interest Rate>" 
@@ -148,7 +148,7 @@ Scenario Outline: Validate the user is able to apply for Rewards Checking Produc
     And user clicks on button "Confirm"
     And user waits for "30" seconds
 	And user waits for page to load
-    And user is on "Account_origination_Signature"  
+	And user validates that "Account_origination_Signature" is displayed 
    # And user clicks on button "Printed_Signed"            Commenting as this piece is under development
    # And user clicks on button "Submit"
 
