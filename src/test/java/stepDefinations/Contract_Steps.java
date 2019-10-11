@@ -39,7 +39,7 @@ public class Contract_Steps {
 	@Given("^user selects \"([^\"]*)\" for switch \"([^\"]*)\"$")
 	public void user_selects_for_switch(String value, String switchName) throws Throwable {
 		switchName = ObjectRepository.getString(switchName)+"//li[(text()='"+value+"')]";
-		vastbasetest.webelementHandler.clickButton(ObjectRepository.getString(switchName));
+		vastbasetest.webelementHandler.clickButton(switchName);
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
 	}
 }

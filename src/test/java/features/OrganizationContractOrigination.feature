@@ -13,7 +13,7 @@ Background:
     And user waits for "5" seconds
     And user validates that "Dashboard_page" is displayed    
  	
-@Smoke @Regression	 @TC008
+@Smoke @Regression	 @TC009
 Scenario Outline: Validate the user is able to apply for Money Market Product for Commercial account by adding relationship as Officer and requesting card for him
 	Given user validates that "Dashboard_page" is displayed 
 	And user clicks on button "Contract"
@@ -89,7 +89,7 @@ Scenario Outline: Validate the user is able to apply for Money Market Product fo
 	| 114467611		  |	Money Market |	Money Market     |	20000			|	Commercial			|	VNB 				  |	Collinsville	| Oct 1, 2019     |	Officer			    	| 444444444| 40         | Test Person 			   | Open money market deposit; Restricted POS  | Business  		  |  0.25%		  | 0.25% |
 
 
-@TC009
+@TC010
 Scenario Outline: Validate the user is able to apply for Business Savings Product for Trust account by adding relationship as Officer and requesting card for him
 	Given user is on "Dashboard_page" 
 	And user clicks on button "Contract"
