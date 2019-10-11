@@ -33,8 +33,8 @@ public class Login_Steps{
 		vastbasetest.driver.quit();
 	}
 	
-	@Given("^User launches the Vast application \"([^\"]*)\"$")
-	public void user_launches_the_Vast_application(String url) throws Throwable {
+	@Given("^User launches the application \"([^\"]*)\"$")
+	public void user_launches_the_application(String url) throws Throwable {
 		vastbasetest.driver.get(url);
 	    Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
 	}
@@ -49,13 +49,6 @@ public class Login_Steps{
 	public void user_clicks_on_button(String arg1) throws Throwable {
 		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(arg1));
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
-	}
-	
-	@Then("^user is on \"([^\"]*)\"$")
-	public void user_is_on(String arg1) throws Throwable {
-		Thread.sleep(2000);
-		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.isDisplayed(ObjectRepository.getString(arg1)));
-		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(sName));  
 	}
 	
 	@Given("^user validates \"([^\"]*)\" with expected value \"([^\"]*)\"$")

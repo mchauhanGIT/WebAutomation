@@ -18,18 +18,16 @@ public class Customer_Steps {
 		this.loginsteps=loginsteps;
 	}
 	
-	@Then("^Verify \"([^\"]*)\" is available in \"([^\"]*)\"$")
-	public void verify_is_available_in(String arg1, String arg2) throws Throwable {
-		vastbasetest.webelementHandler.setDriverWait(ObjectRepository.getobjectLocator(arg2));
-		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.getText(ObjectRepository.getobjectLocator(arg2)).contains(arg1));
+	@Given("^Verify \"([^\"]*)\" is displayed in \"([^\"]*)\"$")
+	public void verify_is_displayed_in(String text, String column) throws Throwable {
+		vastbasetest.webelementHandler.setDriverWait(ObjectRepository.getString(column));
+		// VerificationHandler.verifyTrue(vastbasetest.webelementHandler.getText(ObjectRepository.getobjectLocator(arg2)).contains(arg1));
+		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.verifyTextInList(column, text));
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
 	}
 	
 	@Given("^user selects \"([^\"]*)\" from \"([^\"]*)\" dropdown$")
 	public void user_selects_from_dropdown(String value, String dropdown) throws Throwable {
-		if (value.equals("Mr.")) {
-			System.out.println("here");
-		}
 		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(dropdown));
 		String dropdownList = ObjectRepository.getString(dropdown).replace("//div", "//li").replaceAll("Xpath:", "");
 		if (dropdown.equals("Opened_by_Officer_ID") || dropdown.equals("Officer_code")) {
@@ -49,7 +47,5 @@ public class Customer_Steps {
 	public void user_validates_text_with_expected_value(String arg1, String arg2) throws Throwable {
 		VerificationHandler.verifyTrue(vastbasetest.webelementHandler.getText(ObjectRepository.getString(arg1)).contains(arg2));
 		Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
-	}
-
-	
+	}	
 }

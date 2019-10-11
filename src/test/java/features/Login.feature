@@ -5,14 +5,14 @@
 Feature: Login Features
 @Smoke @Regression @TC001
 Scenario Outline: Verify Login with valid credentials
-	Given User launches the Vast application "<url>"
+    Given User launches the application "<url>"
 		And user enters text "<Username>" in textbox "Username"
 		And user enters text "<Password>" in textbox "Password"
 		And user clicks on button "Environment"
 		And user clicks on button "VAST_Jack_Henry_QAT"
 		And user clicks on button "Login"
     	And user waits for "5" seconds
-		Then user is on "Dashboard_page" 
+    	And user validates that "Dashboard_page" is displayed 
 		
 		Examples:
 		| url | Username | Password |
@@ -20,7 +20,7 @@ Scenario Outline: Verify Login with valid credentials
 
 @Regression @TC002	
 Scenario Outline: Verify Login with invalid credentials
-	Given User launches the Vast application "<url>"
+    Given User launches the application "<url>"
 		And user enters text "<Username>" in textbox "Username"
 		And user enters text "<Password>" in textbox "Password"
 		And user clicks on button "Environment"

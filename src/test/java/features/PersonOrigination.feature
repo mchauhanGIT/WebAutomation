@@ -5,18 +5,18 @@
 #Scenario: #NA
 Feature: Person Origination 
 Background:
-    Given User launches the Vast application "http://vnbaxmqaapp.vnb.internal:8080/bpc/"
+    Given User launches the application "http://vnbaxmqaapp.vnb.internal:8080/bpc/"
     And user enters text "adeep" in textbox "Username"
     And user enters text "test" in textbox "Password"
 	And user clicks on button "Environment"
 	And user clicks on button "VAST_Jack_Henry_QAT"
     And user clicks on button "Login"
     And user waits for "5" seconds
-    And user is on "Dashboard_page"    
+    And user validates that "Dashboard_page" is displayed   
  	
 @Smoke @Regression	 @TC006
-Scenario Outline: Validate the user is able to create new record for person in VAST system when no customer is retreived from the system
-	Given user is on "Dashboard_page" 
+Scenario Outline: Validate the user is able to create new record for person when customer isn't available in VAST
+	Given user validates that "Dashboard_page" is displayed  
 	And user clicks on button "Customer"
 	And user clicks on button "Person_Origination"
 	And user enters text "<TIN (SSN/EIN)>" in textbox "TIN_SSN_EIN"
@@ -54,13 +54,13 @@ Scenario Outline: Validate the user is able to create new record for person in V
 	And user selects "<Officer code>" from "Officer_code" dropdown
 	And user selects "<Branch>" from "Branch" dropdown
 	And user clicks on button "Next"
-	And user is on "Show_check_results_screen"  
+	And user validates that "Show_check_results_screen" is displayed
 	And user clicks on button "Next"
-	And user is on "Capture_relationships_screen"  
+	And user validates that "Capture_relationships_screen" is displayed
 	And user clicks on button "Next"
-	And user is on "Add_customer_screen" 
+	And user validates that "Add_customer_screen" is displayed
 	And user clicks on button "Confirm"
-	And user is on "Display_customer_screen" 
+	And user validates that "Display_customer_screen" is displayed
 	And user validates text "actual_customer_no" with expected value "<TIN (SSN/EIN)>"
 	And user validates text "actual_name" with expected value "<Name>"
 	And user validates text "actual_Birth_Date" with expected value "<Birth Date>"
@@ -70,7 +70,7 @@ Scenario Outline: Validate the user is able to create new record for person in V
 
     Examples: 
 	|	TIN (SSN/EIN)	|	Title	|	First name	|	Last name	|	Gender	|	Birth Date	|	Street address	|	City	|	State		|	Zip code	|	Phone type	|	Phone number	|	Email address	|	ID type				|	Number	|	Issuing authority	|	ID state	|	Issuance date	|	Expiration date	|	Employer	|	Job title	| Salary	|	Officer code	|	Branch	| Name | Address |
-	|	473328592		|	Mr.		|	Andrew		|	Lopez		|	Male	| Oct 20, 1991  |	1234 Main St	|	Tulsa	|	Oklahoma	|	12345		|	Cell		|	987-654-3210	|	abc@abc.com		|	Driver's License	|	DMV1234	|	DMV					|	Texas		|	Jun 07, 2016	|	Jun 05, 2022	|	ABC LLC		|	Tester		| 50000	|	RBS |	Tulsa - Yale	|	Andrew Lopez | 1234 Main St, Tulsa, OK 12345 |	
+	|	473328596		|	Mr.		|	Andrew		|	Lopez		|	Male	| Oct 20, 1991  |	1234 Main St	|	Tulsa	|	Oklahoma	|	12345		|	Cell		|	987-654-3210	|	abc@abc.com		|	Driver's License	|	DMV1234	|	DMV					|	Texas		|	Jun 07, 2016	|	Jun 05, 2022	|	ABC LLC		|	Tester		| 50000	|	RBS |	Tulsa - Yale	|	Andrew Lopez | 1234 Main St, Tulsa, OK 12345 |	
 	
 
 	
