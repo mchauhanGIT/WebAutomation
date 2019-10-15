@@ -111,7 +111,7 @@ Scenario Outline: Validate the user is able to apply for Business Savings Produc
     And user selects "<Account ownership>" from "Account_ownership" dropdown
     And user selects "<Trust account>" from "Trust_account" dropdown
     And user selects "<Opened by (Officer ID)>" from "Opened_by_Officer_ID" dropdown
-    And user selects "<Branch>" from "*Branch" dropdown
+  	And user selects "<Branch>" from "*Branch" dropdown
     And user enters text "<Resolution date>" in textbox "Resolution_date"    
     And user clicks on button "Next"
     And user waits for "4" seconds

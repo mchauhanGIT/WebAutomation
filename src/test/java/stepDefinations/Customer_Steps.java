@@ -30,9 +30,9 @@ public class Customer_Steps {
 	public void user_selects_from_dropdown(String value, String dropdown) throws Throwable {
 		vastbasetest.webelementHandler.clickButton(ObjectRepository.getobjectLocator(dropdown));
 		String dropdownList = ObjectRepository.getString(dropdown).replace("//div", "//li").replaceAll("Xpath:", "");
-		if (dropdown.equals("Opened_by_Officer_ID") || dropdown.equals("Officer_code")) {
+/*		if (dropdown.equals("Opened_by_Officer_ID") || dropdown.equals("Officer_code")) {
 			dropdownList=dropdownList+"//span";
-		}
+		}*/
 		vastbasetest.webelementHandler.clickElementByText(dropdownList, value);
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));
 	}

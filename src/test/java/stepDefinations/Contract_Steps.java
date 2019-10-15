@@ -42,4 +42,11 @@ public class Contract_Steps {
 		vastbasetest.webelementHandler.clickButton(switchName);
         Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
 	}
+	
+	@Given("^user validates that \"([^\"]*)\" is NOT displayed$")
+	public void user_validates_that_is_NOT_displayed(String arg1) throws Throwable {
+		vastbasetest.webelementHandler.verifyElementNotPresent(arg1);
+        Reporter.addScreenCaptureFromPath(vastbasetest.screenshot.captureScreenShot(loginsteps.sName));  
+	}
+
 }
